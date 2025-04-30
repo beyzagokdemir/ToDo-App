@@ -6,11 +6,16 @@ function TodoCreate({ onCreateTodo }) {
   const createTodo = () => {
     if (!newTodo) return;
 
+    const clearInput = () => {
+      setNewTodo("");
+    };
+
     const request = {
       id: Math.floor(Math.random() * 999),
       content: newTodo,
     };
     onCreateTodo(request);
+    clearInput();
   };
   return (
     <div className="todo-create">
