@@ -6,6 +6,10 @@ import TodoList from "./components/TodoList";
 function App() {
   const [todos, setTodos] = useState([]);
 
+  const removeTodo = (todoId) => {
+    setTodos([todos.filter((todo) => todo.id !== todoId)]);
+  };
+
   const createTodo = (newTodo) => {
     setTodos([...todos, newTodo]);
   };
@@ -16,7 +20,7 @@ function App() {
     <div className="App">
       <div className="main">
         <TodoCreate onCreateTodo={createTodo} />
-        <TodoList todos={todos} />
+        <TodoList onremoveTodo={removeTodo} todos={todos} />
       </div>
     </div>
   );

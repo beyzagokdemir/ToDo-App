@@ -1,8 +1,12 @@
 import React from "react";
 import { IoIosRemoveCircle } from "react-icons/io";
 import { CiEdit } from "react-icons/ci";
-function Todo({ todo }) {
+function Todo({ todo, onremoveTodo }) {
   const { id, content } = todo;
+
+  const removeTodo = () => {
+    onremoveTodo(id);
+  };
 
   return (
     <div
@@ -17,7 +21,7 @@ function Todo({ todo }) {
     >
       <div>{content}</div>
       <div>
-        <IoIosRemoveCircle className="todo-icons" />
+        <IoIosRemoveCircle onClick={removeTodo} className="todo-icons" />
         <CiEdit className="todo-icons" />
       </div>
     </div>
